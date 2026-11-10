@@ -1,0 +1,45 @@
+services:
+  smk:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    container_name: smk
+    restart: unless-stopped
+    environment:
+      SMK_PORT: "8765"
+      SMK_NO_BROWSER: "1"
+      TZ: Europe/Moscow
+    volumes:
+      - smk-data:/app/data
+      - smk-docs:/app/Документы
+      - smk-backups:/app/backups
+    networks:
+      - web
+
+  caddy:
+    image: caddy:2
+    container_name: smk-caddy
+    restart: unless-stopped
+    depends_on:
+      - smk
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    networks:
+      - web
+
+volumes:
+  smk-data:
+  smk-docs:
+  smk-backups:
+  caddy-data:
+  caddy-config:
+
+networks:
+  web:

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>НИЦ СМК · Автоматизация документов</title>
+<link rel="stylesheet" href="/static/style.css?v=100">
+  <link rel="manifest" href="/static/manifest.webmanifest">
+  <meta name="theme-color" content="#1f2a3a">
+  <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="НИЦ СМК">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo-stripes" title="НИЦ СМК"><i></i><i></i><i></i></div>
+      <div>
+        <div class="brand-name">НИЦ СМК</div>
+        <div class="brand-sub">автоматизация документов</div>
+      </div>
+    </div>
+    <nav id="nav">
+      <a href="#/field" data-route="field"><span class="ico">📷</span>Поле</a>
+      <a href="#/lab" data-route="lab"><span class="ico">🧪</span>Лаборатория</a>
+      <a href="#/documents" data-route="documents"><span class="ico">🔎</span>Документы</a>
+      <a href="#/kp" data-route="kp"><span class="ico">₽</span>КП</a>
+      <a href="#/directory" data-route="directory"><span class="ico">◇</span>Объекты и контракты</a>
+      <a href="#/settings" data-route="settings"><span class="ico">⚙</span>Настройки</a>
+    </nav>
+    <div class="side-foot">
+      <div class="status"><span class="dot"></span> локальная программа</div>
+      <div class="hint">Данные хранятся на этом компьютере</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1 id="page-title">Главная</h1>
+        <div class="subtitle" id="page-sub"></div>
+      </div>
+      <div class="flex" style="gap:6px;align-items:center">
+        <button class="btn ghost sm" id="btn-back" title="Назад">←</button>
+        <button class="btn ghost sm" id="btn-home" title="На главную">⌂</button>
+      </div>
+      <div class="top-actions">
+        <button class="btn sm" id="tb-proto">＋ Протокол</button>
+        <button class="btn ghost sm" id="tb-report">＋ Отчёт</button>
+        <button class="btn ghost sm" id="tb-field">Поле</button>
+        <button class="btn ghost sm" id="btn-folder" title="Открыть папку с документами">Папка</button>
+        <button class="btn ghost sm" id="btn-refresh" title="Обновить">⟳</button>
+        <div class="today" id="today"></div>
+      </div>
+    </header>
+    <section id="view" class="view"></section>
+  </main>
+</div>
+<nav class="mobilenav" id="mobilenav">
+  <a href="#/field" data-r="field"><span>📷</span>Поле</a>
+  <a href="#/lab" data-r="lab"><span>🧪</span>Лаборатория</a>
+  <a href="#/documents" data-r="documents"><span>🔎</span>Документы</a>
+  <a href="#/kp" data-r="kp"><span>₽</span>КП</a>
+  <a href="#/directory" data-r="directory"><span>◇</span>Объекты</a>
+</nav>
+<div class="statusbar">
+  <div id="sb-left">ООО «НИЦ СМК» · локальная база</div>
+  <div class="sb-right"><span id="sb-docs"></span><span id="sb-ai"></span></div>
+</div>
+<div id="toast" class="toast"></div>
+<div id="modal" class="modal-backdrop hidden"><div class="modal" id="modal-body"></div></div>
+<script src="/static/app.js?v=100"></script>
+</body>
+</html>

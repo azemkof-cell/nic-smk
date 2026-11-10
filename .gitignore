@@ -1,0 +1,20 @@
+# данные и результаты работы
+data/
+backups/
+Документы/
+Скриншоты/
+*.log
+*.zip
+*.pdf
+
+# секреты и локальные настройки
+.env
+deploy/.env
+
+# служебное
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+node_modules/

@@ -1,0 +1,7 @@
+{$DOMAIN} {
+    encode gzip
+    reverse_proxy smk:8765
+    header {
+        Strict-Transport-Security "max-age=31536000"
+    }
+}
